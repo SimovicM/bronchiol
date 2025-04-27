@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLanguage } from '../contexts/LanguageContext';
-import { LinkedIn } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 
 const Team = () => {
   const { t } = useLanguage();
@@ -36,7 +36,7 @@ const Team = () => {
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors"
               >
-                <LinkedIn className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
 
