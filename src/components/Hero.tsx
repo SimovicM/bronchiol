@@ -1,11 +1,14 @@
 
-import { ArrowRight } from "lucide-react";
+import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Effect */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-radial from-space-purple/40 to-space-blue z-0"></div>
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-space-accent/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-space-highlight/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -16,28 +19,21 @@ const Hero = () => {
       {/* Content */}
       <div className="container max-w-7xl mx-auto px-4 py-12 md:py-0 z-10">
         <div className="flex flex-col items-center text-center">
-          <div className="inline-block mb-6">
-            <div className="animated-border">
-              <span className="px-3 py-1 text-xs font-medium bg-space-purple text-white/80 rounded-xl">
-                Next Generation Respiratory Solutions
-              </span>
-            </div>
-          </div>
-          
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 gradient-text max-w-4xl leading-tight">
-            The Future of Respiratory Innovation
+            {t('hero.welcome')}
           </h1>
           
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-10">
-            Pioneering breakthrough technologies in respiratory health with cutting-edge research and innovative solutions.
+            {t('hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
             <Button 
               size="lg" 
               className="bg-space-accent hover:bg-space-accent/90 text-white w-full sm:w-auto"
+              onClick={() => window.location.href = '/contact'}
             >
-              Explore Solutions
+              {t('nav.contact')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             
@@ -45,34 +41,11 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="border-white/20 bg-white/5 hover:bg-white/10 text-white w-full sm:w-auto"
+              onClick={() => window.location.href = '/about'}
             >
-              Learn More
+              {t('nav.about')}
             </Button>
           </div>
-
-          {/* Stats Section */}
-          <div className="w-full mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass-panel p-6">
-              <h3 className="text-5xl font-bold gradient-text mb-2">95%</h3>
-              <p className="text-white/60">Diagnostic Accuracy</p>
-            </div>
-            <div className="glass-panel p-6">
-              <h3 className="text-5xl font-bold gradient-text mb-2">24/7</h3>
-              <p className="text-white/60">Real-Time Monitoring</p>
-            </div>
-            <div className="glass-panel p-6">
-              <h3 className="text-5xl font-bold gradient-text mb-2">50+</h3>
-              <p className="text-white/60">Research Publications</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <div className="w-1 h-10 relative overflow-hidden">
-          <div className="absolute w-1 h-5 bg-white/20 rounded-t-full"></div>
-          <div className="absolute w-1 h-5 bg-white/60 rounded-full animate-[scroll_1.5s_infinite]"></div>
         </div>
       </div>
     </section>
