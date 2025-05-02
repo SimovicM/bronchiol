@@ -156,18 +156,16 @@ const Navbar = () => {
               >
                 {t('nav.about')}
               </Link>
-              <Button
-                variant="ghost"
-                size="lg"
+              <button
                 onClick={() => {
                   toggleLanguage();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full flex items-center justify-center gap-2"
+                className="w-full flex items-center justify-center gap-2 bg-transparent text-white p-3 text-lg font-medium hover:bg-space-subtle rounded-lg transition-colors duration-300"
               >
                 <Globe className="h-5 w-5" />
                 {language === 'cs' ? 'English' : 'Česky'}
-              </Button>
+              </button>
             </nav>
           </motion.div>
         )}
