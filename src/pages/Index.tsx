@@ -2,7 +2,10 @@
 import { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Features from "../components/Features";
+import CtaSection from "../components/CtaSection";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 const Index = () => {
   useEffect(() => {
@@ -10,11 +13,18 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen flex flex-col bg-space-blue text-white overflow-hidden">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen flex flex-col bg-space-blue text-white overflow-hidden"
+    >
       <Navbar />
       <Hero />
+      <Features />
+      <CtaSection />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
