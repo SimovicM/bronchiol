@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Features = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <section className="relative py-24 overflow-hidden">
@@ -22,9 +22,13 @@ const Features = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">{t('about.full').substring(0, 30)}...</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">
+            {language === 'cs' ? 'Naše služby' : 'Our Services'}
+          </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            {t('hero.description')}
+            {language === 'cs' 
+              ? 'Poskytujeme špičkové poradenské služby v oblasti pneumologie a interní medicíny.'
+              : 'We provide top-tier consulting services in the field of pulmonology and internal medicine.'}
           </p>
         </motion.div>
         
