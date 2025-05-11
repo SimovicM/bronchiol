@@ -1,5 +1,39 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Audi Type Font */
+@font-face {
+  font-family: 'Audi Type';
+  src: url('/fonts/AudiType-Normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src: url('/fonts/AudiType-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src: url('/fonts/AudiType-ExtendedNormal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: expanded;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Audi Type';
+  src: url('/fonts/AudiType-ExtendedBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: expanded;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -53,11 +87,11 @@
 
   body {
     @apply bg-space-blue text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Audi Type', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Audi Type', sans-serif;
     @apply font-semibold tracking-tight;
   }
 }
