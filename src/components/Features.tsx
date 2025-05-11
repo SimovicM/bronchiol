@@ -1,4 +1,3 @@
-
 import { Airplay, Activity, Microscope, ShieldCheck, Zap, Brain } from "lucide-react";
 
 const featuresData = [
