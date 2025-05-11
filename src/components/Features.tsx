@@ -1,8 +1,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Features = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Effects */}
@@ -19,9 +22,9 @@ const Features = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">Innovative Technologies</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">{t('about.full').substring(0, 30)}...</h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Pushing the boundaries of what's possible with state-of-the-art solutions built for the future.
+            {t('hero.description')}
           </p>
         </motion.div>
         
@@ -34,10 +37,10 @@ const Features = () => {
             className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
             onClick={() => window.location.href = '/about'}
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Discover Our Vision</h3>
-            <p className="text-white/70 mb-6">Learn about our mission and the groundbreaking work we're doing.</p>
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.discover')}</h3>
+            <p className="text-white/70 mb-6">{t('features.learn')}</p>
             <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>Learn more</span>
+              <span>{t('features.more')}</span>
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
@@ -55,10 +58,10 @@ const Features = () => {
             className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
             onClick={() => window.location.href = '/team'}
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Meet Our Team</h3>
-            <p className="text-white/70 mb-6">Get to know the experts behind our cutting-edge innovations.</p>
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.meet')}</h3>
+            <p className="text-white/70 mb-6">{t('features.experts')}</p>
             <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>Meet the team</span>
+              <span>{t('features.team')}</span>
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
@@ -76,10 +79,10 @@ const Features = () => {
             className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
             onClick={() => window.location.href = '/contact'}
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Get In Touch</h3>
-            <p className="text-white/70 mb-6">Interested in our solutions? We'd love to hear from you.</p>
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.touch')}</h3>
+            <p className="text-white/70 mb-6">{t('features.interested')}</p>
             <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>Contact us</span>
+              <span>{t('features.contact')}</span>
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}

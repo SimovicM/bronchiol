@@ -2,8 +2,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const CtaSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background */}
@@ -30,7 +33,7 @@ const CtaSection = () => {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold mb-6 gradient-text"
             >
-              Ready to Join the Future?
+              {t('cta.ready')}
             </motion.h2>
             
             <motion.p
@@ -40,7 +43,7 @@ const CtaSection = () => {
               viewport={{ once: true }}
               className="text-lg text-white/70 mb-8"
             >
-              Connect with us today to explore how our innovative solutions can transform your experience.
+              {t('cta.connect')}
             </motion.p>
             
             <motion.div
@@ -55,7 +58,7 @@ const CtaSection = () => {
                 className="bg-space-accent hover:bg-space-accent/90 text-white group"
                 onClick={() => window.location.href = '/contact'}
               >
-                Start Your Journey
+                {t('cta.start')}
                 <motion.div
                   animate={{ x: [0, 4, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 1 }}
@@ -70,7 +73,7 @@ const CtaSection = () => {
                 className="border-white/20 bg-white/5 hover:bg-white/10 text-white"
                 onClick={() => window.location.href = '/about'}
               >
-                Learn More
+                {t('cta.learn')}
               </Button>
             </motion.div>
           </div>

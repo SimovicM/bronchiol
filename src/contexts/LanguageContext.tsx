@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'cs' | 'en';
@@ -23,6 +22,19 @@ const translations = {
     'contact.email': 'Můžete nás kontaktovat na následujícím e-mailu:',
     'contact.button': 'Odeslat Email',
     'footer.rights': '© 2024 Bronchiol. Všechna práva vyhrazena.',
+    'features.discover': 'Objevte naši vizi',
+    'features.learn': 'Zjistěte více o naší misi a průlomové práci, kterou děláme.',
+    'features.more': 'Zjistit více',
+    'features.meet': 'Poznejte náš tým',
+    'features.experts': 'Seznamte se s odborníky, kteří stojí za našimi inovacemi.',
+    'features.team': 'Poznat tým',
+    'features.touch': 'Kontaktujte nás',
+    'features.interested': 'Máte zájem o naše služby? Rádi od vás uslyšíme.',
+    'features.contact': 'Kontaktujte nás',
+    'cta.ready': 'Připraveni se připojit k budoucnosti?',
+    'cta.connect': 'Spojte se s námi ještě dnes a zjistěte, jak naše inovativní řešení mohou změnit vaši zkušenost.',
+    'cta.start': 'Začněte svou cestu',
+    'cta.learn': 'Zjistit více',
   },
   en: {
     'nav.home': 'Home',
@@ -37,6 +49,19 @@ const translations = {
     'contact.email': 'You can contact us at the following email:',
     'contact.button': 'Send Email',
     'footer.rights': '© 2024 Bronchiol. All rights reserved.',
+    'features.discover': 'Discover Our Vision',
+    'features.learn': 'Learn about our mission and the groundbreaking work we\'re doing.',
+    'features.more': 'Learn more',
+    'features.meet': 'Meet Our Team',
+    'features.experts': 'Get to know the experts behind our cutting-edge innovations.',
+    'features.team': 'Meet the team',
+    'features.touch': 'Get In Touch',
+    'features.interested': 'Interested in our solutions? We\'d love to hear from you.',
+    'features.contact': 'Contact us',
+    'cta.ready': 'Ready to Join the Future?',
+    'cta.connect': 'Connect with us today to explore how our innovative solutions can transform your experience.',
+    'cta.start': 'Start Your Journey',
+    'cta.learn': 'Learn More',
   }
 };
 
