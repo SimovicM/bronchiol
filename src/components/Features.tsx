@@ -1,41 +1,10 @@
-import { Airplay, Activity, Microscope, ShieldCheck, Zap, Brain } from "lucide-react";
 
-const featuresData = [
-  {
-    icon: <Activity className="h-8 w-8 text-space-accent" />,
-    title: "Real-time Monitoring",
-    description: "Advanced sensors provide continuous monitoring of respiratory metrics with unprecedented accuracy."
-  },
-  {
-    icon: <Brain className="h-8 w-8 text-space-accent" />,
-    title: "AI-Powered Analysis",
-    description: "Machine learning algorithms analyze breathing patterns to detect anomalies before symptoms appear."
-  },
-  {
-    icon: <Airplay className="h-8 w-8 text-space-accent" />,
-    title: "Remote Diagnostics",
-    description: "Cloud-based platform enables healthcare providers to monitor patients remotely and in real-time."
-  },
-  {
-    icon: <Microscope className="h-8 w-8 text-space-accent" />,
-    title: "Research-Backed",
-    description: "All solutions are developed through rigorous scientific research and clinical validation."
-  },
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-space-accent" />,
-    title: "Secure Data",
-    description: "End-to-end encryption ensures patient data remains private and protected at all times."
-  },
-  {
-    icon: <Zap className="h-8 w-8 text-space-accent" />,
-    title: "Energy Efficient",
-    description: "Low-power components ensure devices operate continuously for extended periods."
-  },
-];
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const Features = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-space-blue to-transparent z-10"></div>
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-space-blue to-transparent z-10"></div>
@@ -43,27 +12,82 @@ const Features = () => {
       
       {/* Content */}
       <div className="container max-w-7xl mx-auto px-4 relative z-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">Advanced Respiratory Technology</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">Innovative Technologies</h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Our cutting-edge solutions combine the latest in sensor technology, artificial intelligence, 
-            and medical research to revolutionize respiratory care.
+            Pushing the boundaries of what's possible with state-of-the-art solutions built for the future.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuresData.map((feature, index) => (
-            <div 
-              key={index}
-              className="glass-panel p-6 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg hover:shadow-space-accent/10"
-            >
-              <div className="mb-4 p-3 inline-block bg-space-subtle rounded-lg">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
-              <p className="text-white/70">{feature.description}</p>
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
+            onClick={() => window.location.href = '/about'}
+          >
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Discover Our Vision</h3>
+            <p className="text-white/70 mb-6">Learn about our mission and the groundbreaking work we're doing.</p>
+            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+              <span>Learn more</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+              >
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </motion.div>
             </div>
-          ))}
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
+            onClick={() => window.location.href = '/team'}
+          >
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Meet Our Team</h3>
+            <p className="text-white/70 mb-6">Get to know the experts behind our cutting-edge innovations.</p>
+            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+              <span>Meet the team</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+              >
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </motion.div>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
+            onClick={() => window.location.href = '/contact'}
+          >
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">Get In Touch</h3>
+            <p className="text-white/70 mb-6">Interested in our solutions? We'd love to hear from you.</p>
+            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+              <span>Contact us</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+              >
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
