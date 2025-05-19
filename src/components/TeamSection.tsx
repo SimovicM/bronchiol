@@ -7,29 +7,21 @@ const TeamSection = () => {
   
   const teamMembers = [
     {
-      name: "MUDr. Jan Novák",
-      role: language === 'cs' ? "Hlavní konzultant" : "Lead Consultant",
+      name: "Juraj Šimovič",
+      role: language === 'cs' ? "CEO" : "CEO",
       bio: language === 'cs' 
-        ? "Specialista na respirační onemocnění s 15 lety zkušeností."
-        : "Respiratory disease specialist with 15 years of experience.",
+        ? "Zakladatel a ředitel společnosti Bronchiol."
+        : "Founder and CEO of Bronchiol.",
       image: "/placeholder.svg"
     },
     {
-      name: "MUDr. Anna Svobodová",
-      role: language === 'cs' ? "Pneumolog" : "Pulmonologist",
+      name: "Martin Šimovič",
+      role: language === 'cs' ? "Web vývojář/designer" : "Web developer/designer",
       bio: language === 'cs' 
-        ? "Expertka na interní medicínu a plicní onemocnění."
-        : "Expert in internal medicine and pulmonary diseases.",
+        ? "Zodpovědný za digitální přítomnost a technologické řešení."
+        : "Responsible for digital presence and technological solutions.",
       image: "/placeholder.svg"
-    },
-    {
-      name: "Ing. Pavel Dvořák",
-      role: language === 'cs' ? "Výzkumník" : "Researcher",
-      bio: language === 'cs' 
-        ? "Zaměřuje se na inovativní respirační technologie."
-        : "Focuses on innovative respiratory technologies.",
-      image: "/placeholder.svg"
-    },
+    }
   ];
   
   return (
@@ -39,7 +31,7 @@ const TeamSection = () => {
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-space-highlight/5 rounded-full blur-3xl"></div>
       
       <div className="container max-w-7xl mx-auto px-4 relative z-10">        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
