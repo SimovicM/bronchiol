@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Features = () => {
   const { t, language } = useLanguage();
@@ -38,20 +39,22 @@ const Features = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
-            onClick={() => window.location.href = '/about'}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow"
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.discover')}</h3>
-            <p className="text-white/70 mb-6">{t('features.learn')}</p>
-            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>{t('features.more')}</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
-              >
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.div>
-            </div>
+            <Link to="/about" className="block w-full h-full">
+              <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.discover')}</h3>
+              <p className="text-white/70 mb-6">{t('features.learn')}</p>
+              <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+                <span>{t('features.more')}</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </motion.div>
+              </div>
+            </Link>
           </motion.div>
           
           <motion.div
@@ -59,20 +62,22 @@ const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
-            onClick={() => window.location.href = '/team'}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow"
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.meet')}</h3>
-            <p className="text-white/70 mb-6">{t('features.experts')}</p>
-            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>{t('features.team')}</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
-              >
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.div>
-            </div>
+            <Link to="/team" className="block w-full h-full">
+              <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.meet')}</h3>
+              <p className="text-white/70 mb-6">{t('features.experts')}</p>
+              <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+                <span>{t('features.team')}</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </motion.div>
+              </div>
+            </Link>
           </motion.div>
           
           <motion.div
@@ -80,20 +85,22 @@ const Features = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
-            className="cyber-box p-8 w-full md:w-1/3 group hover-glow cursor-pointer"
-            onClick={() => window.location.href = '/contact'}
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="cyber-box p-8 w-full md:w-1/3 group hover-glow"
           >
-            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.touch')}</h3>
-            <p className="text-white/70 mb-6">{t('features.interested')}</p>
-            <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
-              <span>{t('features.contact')}</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
-              >
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.div>
-            </div>
+            <Link to="/contact" className="block w-full h-full">
+              <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-glow">{t('features.touch')}</h3>
+              <p className="text-white/70 mb-6">{t('features.interested')}</p>
+              <div className="flex items-center text-space-accent group-hover:text-space-highlight transition-colors">
+                <span>{t('features.contact')}</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 0.5 }}
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </motion.div>
+              </div>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -73,24 +74,28 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-space-accent hover:bg-space-accent/90 text-white w-full sm:w-auto group"
-              onClick={() => window.location.href = '/contact'}
+              asChild
             >
-              {t('nav.contact')}
-              <motion.div
-                animate={{ x: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 1 }}
-              >
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.div>
+              <Link to="/contact">
+                {t('nav.contact')}
+                <motion.div
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 1 }}
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </motion.div>
+              </Link>
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
               className="border-white/20 bg-white/5 hover:bg-white/10 text-white w-full sm:w-auto backdrop-blur-sm"
-              onClick={() => window.location.href = '/about'}
+              asChild
             >
-              {t('nav.about')}
+              <Link to="/about">
+                {t('nav.about')}
+              </Link>
             </Button>
           </motion.div>
         </motion.div>

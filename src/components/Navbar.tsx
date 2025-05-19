@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,17 +23,6 @@ const Navbar = () => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'cs' ? 'en' : 'cs');
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      setMobileMenuOpen(false);
-      window.scrollTo({
-        top: section.offsetTop - 80, // Adjust offset for header
-        behavior: 'smooth'
-      });
-    }
   };
 
   const navVariants = {
@@ -62,9 +53,9 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <button onClick={() => scrollToSection('hero')} className="text-2xl font-bold tracking-tight gradient-text">
+          <Link to="/" className="text-2xl font-bold tracking-tight gradient-text">
             Bronchiol
-          </button>
+          </Link>
         </motion.div>
 
         <motion.nav 
@@ -74,31 +65,31 @@ const Navbar = () => {
           className="hidden md:flex items-center space-x-8"
         >
           <motion.div variants={linkVariants}>
-            <button onClick={() => scrollToSection('hero')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <Link to="/" className={`text-sm font-medium ${location.pathname === '/' ? 'text-white' : 'text-white/80'} hover:text-white transition-colors relative group`}>
               {t('nav.home')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </button>
+            </Link>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <button onClick={() => scrollToSection('team')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <Link to="/team" className={`text-sm font-medium ${location.pathname === '/team' ? 'text-white' : 'text-white/80'} hover:text-white transition-colors relative group`}>
               {t('nav.team')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </button>
+            </Link>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <Link to="/contact" className={`text-sm font-medium ${location.pathname === '/contact' ? 'text-white' : 'text-white/80'} hover:text-white transition-colors relative group`}>
               {t('nav.contact')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </button>
+            </Link>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <Link to="/about" className={`text-sm font-medium ${location.pathname === '/about' ? 'text-white' : 'text-white/80'} hover:text-white transition-colors relative group`}>
               {t('nav.about')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </button>
+            </Link>
           </motion.div>
           
           <motion.div variants={linkVariants}>
@@ -138,30 +129,34 @@ const Navbar = () => {
             className="md:hidden fixed inset-0 z-40 bg-space-blue/95 backdrop-blur-lg pt-20"
           >
             <nav className="container p-4 flex flex-col space-y-6 items-center">
-              <button 
+              <Link 
+                to="/"
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => scrollToSection('hero')}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.home')}
-              </button>
-              <button 
+              </Link>
+              <Link 
+                to="/team"
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => scrollToSection('team')}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.team')}
-              </button>
-              <button 
+              </Link>
+              <Link 
+                to="/contact"
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.contact')}
-              </button>
-              <button 
+              </Link>
+              <Link 
+                to="/about"
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => scrollToSection('about')}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {t('nav.about')}
-              </button>
+              </Link>
               <button
                 onClick={() => {
                   toggleLanguage();
