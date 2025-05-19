@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
@@ -22,6 +21,17 @@ const Navbar = () => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'cs' ? 'en' : 'cs');
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      setMobileMenuOpen(false);
+      window.scrollTo({
+        top: section.offsetTop - 80, // Adjust offset for header
+        behavior: 'smooth'
+      });
+    }
   };
 
   const navVariants = {
@@ -52,9 +62,9 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/" className="text-2xl font-bold tracking-tight gradient-text">
+          <button onClick={() => scrollToSection('hero')} className="text-2xl font-bold tracking-tight gradient-text">
             Bronchiol
-          </Link>
+          </button>
         </motion.div>
 
         <motion.nav 
@@ -64,31 +74,31 @@ const Navbar = () => {
           className="hidden md:flex items-center space-x-8"
         >
           <motion.div variants={linkVariants}>
-            <Link to="/" className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <button onClick={() => scrollToSection('hero')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
               {t('nav.home')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            </button>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <Link to="/team" className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <button onClick={() => scrollToSection('team')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
               {t('nav.team')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            </button>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <Link to="/contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
               {t('nav.contact')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            </button>
           </motion.div>
           
           <motion.div variants={linkVariants}>
-            <Link to="/about" className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
+            <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group">
               {t('nav.about')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-space-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            </button>
           </motion.div>
           
           <motion.div variants={linkVariants}>
@@ -128,34 +138,30 @@ const Navbar = () => {
             className="md:hidden fixed inset-0 z-40 bg-space-blue/95 backdrop-blur-lg pt-20"
           >
             <nav className="container p-4 flex flex-col space-y-6 items-center">
-              <Link 
-                to="/" 
+              <button 
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => scrollToSection('hero')}
               >
                 {t('nav.home')}
-              </Link>
-              <Link 
-                to="/team" 
+              </button>
+              <button 
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => scrollToSection('team')}
               >
                 {t('nav.team')}
-              </Link>
-              <Link 
-                to="/contact" 
+              </button>
+              <button 
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => scrollToSection('contact')}
               >
                 {t('nav.contact')}
-              </Link>
-              <Link 
-                to="/about" 
+              </button>
+              <button 
                 className="w-full text-center text-lg font-medium p-3 hover:bg-space-subtle rounded-lg transition-colors duration-300"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => scrollToSection('about')}
               >
                 {t('nav.about')}
-              </Link>
+              </button>
               <button
                 onClick={() => {
                   toggleLanguage();
